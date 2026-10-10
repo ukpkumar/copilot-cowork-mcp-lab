@@ -6,5 +6,6 @@ dist/
 azure-deployment.generated.json
 DEPLOYMENT-STEPS.md
 coverage/
+docs/session/slide-images/
 .DS_Store
 Thumbs.db

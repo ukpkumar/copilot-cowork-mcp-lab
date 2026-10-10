@@ -26,6 +26,8 @@ This repository is a parent hub for Copilot Cowork MCP samples, deployment walkt
 | Guide | Purpose |
 | --- | --- |
 | [Deployment guide](DEPLOYMENT.md) | Step-by-step Azure, Entra, AKS, and plugin deployment instructions. |
+| [End-to-end lab workbook](docs/labs/nasa-mars-rover-mcp-cowork-end-to-end-lab.md) | Instructor-ready hands-on lab covering build, auth, AKS, network, DNS, TLS, plugin packaging, and troubleshooting. |
+| [Session deck](docs/session/README.md) | PowerPoint session material and deck-generation script. |
 | [Troubleshooting](TROUBLESHOOTING.md) | Common auth, deployment, Kubernetes, and packaging issues. |
 | [Security notes](SECURITY.md) | Secret handling, token validation, multi-tenant security, and public repo hygiene. |
 | [Documentation index](docs/README.md) | Index for long-form docs and blog posts. |
