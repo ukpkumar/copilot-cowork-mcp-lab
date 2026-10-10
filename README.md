@@ -112,7 +112,7 @@ Before deploying or packaging, replace these placeholders:
 
 For step-by-step instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-For a full beginner-friendly walkthrough written as a blog article, see [BLOG.md](BLOG.md).
+For a full beginner-friendly walkthrough written as a blog article, see [Building a Multi-Tenant Microsoft Copilot MCP Connector for NASA Mars Rover Photos](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
 
 ## Authentication model
 
