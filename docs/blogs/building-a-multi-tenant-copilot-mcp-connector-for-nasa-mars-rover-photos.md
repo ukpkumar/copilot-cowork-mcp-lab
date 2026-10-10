@@ -1,8 +1,8 @@
-# Building a Multi-Tenant Microsoft Copilot MCP Connector for NASA Mars Rover Photos
+# NASA Mars Rover MCP Connector and Plugin for Copilot Cowork
 
-This blog walks through building and deploying a remote Model Context Protocol (MCP) connector for Microsoft Copilot/Cowork. The connector lets Copilot search and retrieve NASA Mars rover photos using read-only MCP tools.
+This blog walks through building and deploying a multi-tenant remote Model Context Protocol (MCP) connector and plugin for Copilot Cowork. The connector lets Copilot search, summarize, and retrieve NASA Mars rover imagery through read-only MCP tools backed by current public `mars.nasa.gov` feeds.
 
-The goal is to make this guide understandable even if you are new to MCP, Azure Kubernetes Service, Microsoft Entra ID, or Copilot plugin packaging.
+The goal is to make the guide clear enough for a novice user while still being useful for architects and developers who want a realistic end-to-end pattern for secure Copilot extensibility.
 
 By the end, you will have:
 

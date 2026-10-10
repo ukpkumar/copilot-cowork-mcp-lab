@@ -1,6 +1,6 @@
-# NASA Mars Rover MCP Connector for Microsoft Copilot
+# NASA Mars Rover MCP Connector and Plugin for Copilot Cowork
 
-This repository contains a beginner-friendly sample for building, deploying, and packaging a remote Model Context Protocol (MCP) server for Microsoft Copilot/Cowork. The MCP server exposes read-only NASA Mars rover image tools backed by current public `mars.nasa.gov` image feeds.
+Build a production-style, multi-tenant Model Context Protocol (MCP) connector and Copilot Cowork plugin that brings NASA Mars rover imagery directly into Copilot. This project shows the full path from TypeScript MCP server to Azure Kubernetes deployment to installable Copilot plugin package.
 
 The sample includes:
 
@@ -8,7 +8,7 @@ The sample includes:
 - Microsoft Entra ID bearer-token validation.
 - Multi-tenant authentication support with `ENTRA_TENANT_ID=organizations`.
 - Azure Container Registry (ACR) and Azure Kubernetes Service (AKS) deployment assets.
-- A Copilot app package with MCP tool metadata and agent skills.
+- A Copilot Cowork plugin package with MCP tool metadata and agent skills.
 
 ## What the connector can do
 
@@ -112,7 +112,7 @@ Before deploying or packaging, replace these placeholders:
 
 For step-by-step instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-For a full beginner-friendly walkthrough written as a blog article, see [Building a Multi-Tenant Microsoft Copilot MCP Connector for NASA Mars Rover Photos](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
+For a full beginner-friendly walkthrough written as a blog article, see [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
 
 ## Authentication model
 
