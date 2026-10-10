@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+*.zip
+*.log
+azure-deployment.generated.json
+DEPLOYMENT-STEPS.md
+coverage/
+.DS_Store
+Thumbs.db

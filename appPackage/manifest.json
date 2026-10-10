@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.28/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.28",
+  "version": "0.1.6",
+  "id": "REPLACE_WITH_APP_PACKAGE_ID",
+  "developer": {
+    "name": "NASA Mars Rover MCP",
+    "websiteUrl": "https://mars.nasa.gov/",
+    "privacyUrl": "https://www.nasa.gov/privacy/",
+    "termsOfUseUrl": "https://www.nasa.gov/about/highlights/HP_Privacy.html"
+  },
+  "name": {
+    "short": "Mars Rover MCP",
+    "full": "NASA Mars Rover Photos MCP"
+  },
+  "description": {
+    "short": "Search NASA Mars rover photos from an authenticated MCP server.",
+    "full": "Authenticated MCP connector for NASA Mars rover imagery using current public mars.nasa.gov feeds. Includes tools to list rovers, list cameras, fetch photos by sol or Earth date, retrieve latest photos, and inspect rover manifests."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#0B3D91",
+  "agentSkills": [
+    {
+      "folder": "skills/mars-rover-photo-research"
+    },
+    {
+      "folder": "skills/list-mars-rovers"
+    },
+    {
+      "folder": "skills/list-rover-cameras"
+    },
+    {
+      "folder": "skills/get-rover-photos"
+    },
+    {
+      "folder": "skills/get-latest-rover-photos"
+    },
+    {
+      "folder": "skills/get-rover-manifest"
+    }
+  ],
+  "agentConnectors": [
+    {
+      "id": "nasa-mars-rover-mcp",
+      "displayName": "NASA Mars Rover Photos",
+      "description": "Authenticated NASA Mars Rover Photos MCP server.",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://REPLACE_WITH_MCP_HOST/mcp",
+          "mcpToolDescription": {
+            "file": "tools/nasa-mars-rover-tools.json"
+          },
+          "authorization": {
+            "type": "OAuthPluginVault",
+            "referenceId": "REPLACE_WITH_OAUTH_PLUGIN_VAULT_REFERENCE_ID"
+          }
+        }
+      }
+    }
+  ]
+}

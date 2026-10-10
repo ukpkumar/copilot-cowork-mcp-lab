@@ -1,0 +1,158 @@
+{
+  "tools": [
+    {
+      "name": "list_rovers",
+      "title": "List Mars Rovers",
+      "description": "List supported NASA Mars rovers and basic mission metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "title": "List Mars Rovers",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "list_rover_cameras",
+      "title": "List Rover Cameras",
+      "description": "List NASA camera codes supported by each rover, or by a specific rover.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rover": {
+            "type": "string",
+            "enum": [
+              "curiosity",
+              "perseverance",
+              "opportunity",
+              "spirit"
+            ]
+          }
+        }
+      },
+      "annotations": {
+        "title": "List Rover Cameras",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_rover_photos",
+      "title": "Get Rover Photos",
+      "description": "Fetch Mars rover photos by rover and either Martian sol or Earth date.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rover": {
+            "type": "string",
+            "enum": [
+              "curiosity",
+              "perseverance",
+              "opportunity",
+              "spirit"
+            ]
+          },
+          "sol": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "earthDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "camera": {
+            "type": "string",
+            "description": "Optional camera or instrument code, such as FHAZ, NAVCAM, MAST, CHEMCAM_RMI, or ZCAM."
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "rover"
+        ]
+      },
+      "annotations": {
+        "title": "Get Rover Photos",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_latest_rover_photos",
+      "title": "Get Latest Rover Photos",
+      "description": "Fetch the latest available photos for a rover.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rover": {
+            "type": "string",
+            "enum": [
+              "curiosity",
+              "perseverance",
+              "opportunity",
+              "spirit"
+            ]
+          },
+          "camera": {
+            "type": "string",
+            "description": "Optional camera or instrument code."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "rover"
+        ]
+      },
+      "annotations": {
+        "title": "Get Latest Rover Photos",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_rover_manifest",
+      "title": "Get Rover Manifest",
+      "description": "Fetch mission manifest metadata, including available sols and photo counts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rover": {
+            "type": "string",
+            "enum": [
+              "curiosity",
+              "perseverance",
+              "opportunity",
+              "spirit"
+            ]
+          }
+        },
+        "required": [
+          "rover"
+        ]
+      },
+      "annotations": {
+        "title": "Get Rover Manifest",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    }
+  ]
+}

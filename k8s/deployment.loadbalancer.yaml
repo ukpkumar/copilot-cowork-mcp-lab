@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nasa-mars-rover-mcp
+  namespace: nasa-mars-rover-mcp
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: nasa-mars-rover-mcp
+  template:
+    metadata:
+      labels:
+        app: nasa-mars-rover-mcp
+    spec:
+      containers:
+        - name: nasa-mars-rover-mcp
+          image: ${ACR_NAME}.azurecr.io/nasa-mars-rover-mcp:${IMAGE_TAG}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: PORT
+              value: "8000"
+            - name: AUTH_REQUIRED
+              value: "true"
+            - name: NASA_BASE_URL
+              value: "https://mars.nasa.gov"
+            - name: NASA_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: nasa-mars-rover-mcp-secrets
+                  key: NASA_API_KEY
+            - name: ENTRA_TENANT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: nasa-mars-rover-mcp-secrets
+                  key: ENTRA_TENANT_ID
+            - name: ENTRA_AUDIENCE
+              valueFrom:
+                secretKeyRef:
+                  name: nasa-mars-rover-mcp-secrets
+                  key: ENTRA_AUDIENCE
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 5m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nasa-mars-rover-mcp
+  namespace: nasa-mars-rover-mcp
+spec:
+  type: LoadBalancer
+  selector:
+    app: nasa-mars-rover-mcp
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
