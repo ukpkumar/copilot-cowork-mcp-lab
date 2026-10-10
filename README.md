@@ -1,4 +1,50 @@
-# NASA Mars Rover MCP Connector and Plugin for Copilot Cowork
+# Copilot Cowork MCP Projects, Blogs, and Samples
+
+This repository is a parent hub for Copilot Cowork MCP samples, deployment walkthroughs, plugin packages, and blog-style technical posts.
+
+## Projects
+
+| Project | Description | Code |
+| --- | --- | --- |
+| **NASA Mars Rover MCP Connector and Plugin for Copilot Cowork** | Production-style, multi-tenant MCP connector and Copilot Cowork plugin that brings NASA Mars rover imagery directly into Copilot. | [`src`](src), [`k8s`](k8s), [`appPackage`](appPackage) |
+
+## Blog posts
+
+| Blog | What it covers |
+| --- | --- |
+| [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md) | End-to-end beginner walkthrough: MCP server, Entra auth, Azure Kubernetes deployment, plugin package, and multi-tenant setup. |
+| [NASA Mars Rover Plugin for Copilot Cowork](docs/blogs/nasa-mars-rover-plugin-for-copilot-cowork.md) | Companion post focused only on the plugin: manifest, tools, skills, OAuthPluginVault, packaging, release checklist, and plugin-only project structure. |
+
+## Plugin packages
+
+| Plugin | Source folder | Description |
+| --- | --- | --- |
+| **NASA Mars Rover Plugin for Copilot Cowork** | [`appPackage`](appPackage) | Installable Copilot Cowork plugin package that connects to the remote NASA Mars Rover MCP server. |
+
+## Deployment and operations guides
+
+| Guide | Purpose |
+| --- | --- |
+| [Deployment guide](DEPLOYMENT.md) | Step-by-step Azure, Entra, AKS, and plugin deployment instructions. |
+| [Troubleshooting](TROUBLESHOOTING.md) | Common auth, deployment, Kubernetes, and packaging issues. |
+| [Security notes](SECURITY.md) | Secret handling, token validation, multi-tenant security, and public repo hygiene. |
+| [Documentation index](docs/README.md) | Index for long-form docs and blog posts. |
+
+## Repository organization
+
+```text
+.
+├─ appPackage/       # Copilot Cowork plugin package source
+├─ docs/             # Blog posts and long-form documentation
+│  └─ blogs/         # Publishable blog articles
+├─ k8s/              # Kubernetes deployment manifests
+├─ src/              # Node.js + TypeScript MCP server
+├─ DEPLOYMENT.md     # Deployment guide
+├─ TROUBLESHOOTING.md
+└─ SECURITY.md
+```
+
+## Featured project: NASA Mars Rover MCP Connector and Plugin for Copilot Cowork
 
 Build a production-style, multi-tenant Model Context Protocol (MCP) connector and Copilot Cowork plugin that brings NASA Mars rover imagery directly into Copilot. This project shows the full path from TypeScript MCP server to Azure Kubernetes deployment to installable Copilot plugin package.
 
