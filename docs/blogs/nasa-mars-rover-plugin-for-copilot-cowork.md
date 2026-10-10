@@ -1,6 +1,8 @@
-# Plugin for Copilot Cowork
+# NASA Mars Rover Plugin for Copilot Cowork
 
-This document explains the Copilot Cowork plugin package included in this repository. It is written so the plugin can be understood, customized, packaged, and, if desired, published as a separate plugin-only project.
+This blog is the companion article to [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md). The first article explains the end-to-end MCP server and Azure deployment. This article focuses only on the Copilot Cowork plugin package: what is inside it, how it connects to the remote MCP server, how authentication is wired, and how you can publish it as a separate plugin-only project.
+
+If you already have a remote MCP server running, this is the article to follow for packaging and distributing the Copilot Cowork plugin.
 
 ## What the plugin does
 
@@ -398,4 +400,3 @@ Before releasing a plugin zip:
 | `/mcp` returns `missing_bearer_token` | Token was not sent | Check plugin auth configuration. |
 | `/mcp` returns `invalid_token` | Token was sent but rejected | Check audience, tenant, and Entra app scope. |
 | Tools ask approval every time | Client or tenant approval policy | Confirm read-only annotations; check tenant policy. |
-

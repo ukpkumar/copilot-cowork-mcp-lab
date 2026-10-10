@@ -112,7 +112,7 @@ Before deploying or packaging, replace these placeholders:
 
 For step-by-step instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-For full details about the packaged Copilot Cowork plugin, see [Plugin for Copilot Cowork](docs/plugin-for-copilot-cowork.md).
+For full details about the packaged Copilot Cowork plugin, see the companion blog [NASA Mars Rover Plugin for Copilot Cowork](docs/blogs/nasa-mars-rover-plugin-for-copilot-cowork.md).
 
 For a full beginner-friendly walkthrough written as a blog article, see [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
 

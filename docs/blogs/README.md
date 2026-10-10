@@ -7,3 +7,4 @@ This folder is for publishable blog posts related to Microsoft Copilot, MCP conn
 | Article | Description |
 | --- | --- |
 | [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md) | End-to-end beginner walkthrough for building, deploying, and packaging the connector. |
+| [NASA Mars Rover Plugin for Copilot Cowork](nasa-mars-rover-plugin-for-copilot-cowork.md) | Companion article focused on the plugin package, manifest, tools, skills, OAuthPluginVault, packaging, and plugin-only project layout. |
