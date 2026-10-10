@@ -112,6 +112,8 @@ Before deploying or packaging, replace these placeholders:
 
 For step-by-step instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
+For a full beginner-friendly walkthrough written as a blog article, see [BLOG.md](BLOG.md).
+
 ## Authentication model
 
 For multi-tenant use, deploy the backend with:
