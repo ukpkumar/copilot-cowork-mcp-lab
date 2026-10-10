@@ -12,6 +12,8 @@ By the end, you will have:
 - A Copilot/Cowork plugin package that connects to the remote MCP server.
 - A GitHub repository structure you can reuse for your own connector.
 
+If you want to publish the packaged plugin as its own standalone project, see [Plugin for Copilot Cowork](../plugin-for-copilot-cowork.md).
+
 ## 1. What are we building?
 
 We are building a remote MCP server called `nasa-mars-rover-mcp`.
