@@ -36,6 +36,18 @@ cd copilot-cowork-mcp-lab
 
 If you are using your own fork, replace the GitHub URL with your fork URL.
 
+Important: run `npm` commands only after you are inside the repository folder.
+If your prompt still shows `PS C:\Users\...>`, you are not in the repo root yet.
+
+Quick check:
+
+```powershell
+Get-Location
+Get-ChildItem package.json
+```
+
+Expected: `package.json` is found in the current folder.
+
 Install and build:
 
 ```powershell

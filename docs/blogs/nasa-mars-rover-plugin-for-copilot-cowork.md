@@ -65,6 +65,8 @@ Open `appPackage/manifest.json` and replace the 3 placeholders above.
 
 ### Step 2: Build the plugin zip
 
+If you are doing only the plugin packaging lab, you do **not** need `npm install` or `npm run build`.
+
 Run from repository root:
 
 ```powershell
