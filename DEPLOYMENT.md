@@ -29,6 +29,8 @@ az account show
 
 ## 2. Clone the repository
 
+You must clone the repository first, then run all commands from inside that cloned folder.
+
 ```powershell
 git clone https://github.com/ukpkumar/copilot-cowork-mcp-lab.git
 cd copilot-cowork-mcp-lab

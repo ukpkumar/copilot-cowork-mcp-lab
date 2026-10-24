@@ -59,6 +59,15 @@ Important:
 
 ## Lab steps
 
+### Step 0: Clone the repository (if not already cloned)
+
+If you do not already have this repo on your machine, clone it first and enter the repo folder:
+
+```powershell
+git clone https://github.com/ukpkumar/copilot-cowork-mcp-lab.git
+cd copilot-cowork-mcp-lab
+```
+
 ### Step 1: Update `manifest.json`
 
 Open `appPackage/manifest.json` and replace the 3 placeholders above.
