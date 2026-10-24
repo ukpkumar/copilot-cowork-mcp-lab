@@ -30,9 +30,11 @@ az account show
 ## 2. Clone the repository
 
 ```powershell
-git clone https://github.com/YOUR_GITHUB_ORG/nasa-mars-rover-mcp.git
-cd nasa-mars-rover-mcp
+git clone https://github.com/ukpkumar/copilot-cowork-mcp-lab.git
+cd copilot-cowork-mcp-lab
 ```
+
+If you are using your own fork, replace the GitHub URL with your fork URL.
 
 Install and build:
 
