@@ -1,28 +1,27 @@
 # NASA Mars Rover Plugin for Copilot Cowork
 
-This is a short, plugin-only guide.
+This is a lab guide for packaging and installing the plugin.
 
-If your MCP server is already deployed and reachable, this is all you need to package and install the Copilot Cowork plugin.
+This guide assumes your remote MCP server is already deployed and reachable. If not, first complete: [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
 
-For full backend deployment details, use the companion article: [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md).
+## What you will complete
 
-For this sample, keep everything in the same repo:
+1. Update plugin manifest values.
+2. Build the plugin zip from `appPackage/`.
+3. Upload and install the zip in Copilot Cowork.
+4. Run a quick validation test.
 
-- `appPackage/` as the plugin source
-- `nasa-mars-rover-cowork-plugin.zip` as the installable plugin
+## Before you start (required)
 
-## What this plugin does
+| Requirement | Why it is needed | Who usually provides it |
+| --- | --- | --- |
+| Access to this repository | To edit `appPackage/manifest.json` and package zip | Project owner |
+| Running MCP endpoint (`https://<host>/mcp`) | Plugin calls this endpoint | Backend/deployment owner |
+| OAuthPluginVault reference ID | Plugin auth configuration | Copilot Cowork admin |
+| Unique app package ID (GUID) | Required in manifest `id` | Plugin owner |
+| Access to upload plugins in Copilot Cowork | To install the zip | Copilot Cowork admin or authorized user |
 
-The plugin tells Copilot Cowork:
-
-1. Which remote MCP server to call (`/mcp`).
-2. Which tool schemas are available (`tools/nasa-mars-rover-tools.json`).
-3. Which skills are included (`appPackage/skills/*`).
-4. How authentication works (`OAuthPluginVault`).
-
-The remote MCP server handles token validation and NASA data retrieval.
-
-## Plugin files
+## Plugin files used in this lab
 
 ```text
 appPackage/
@@ -40,31 +39,31 @@ appPackage/
    └─ get-rover-manifest/SKILL.md
 ```
 
-## 5-step setup
+## Get the 3 manifest values
 
-### 1) Update manifest placeholders
+Update these placeholders in `appPackage/manifest.json`:
 
-Edit `appPackage/manifest.json` and replace:
-
-| Placeholder | Value |
-| --- | --- |
-| `REPLACE_WITH_APP_PACKAGE_ID` | Unique app/package ID |
-| `REPLACE_WITH_MCP_HOST` | Public hostname only (no `https://`) |
-| `REPLACE_WITH_OAUTH_PLUGIN_VAULT_REFERENCE_ID` | OAuthPluginVault reference ID |
+| Placeholder | What to enter | Where to get it |
+| --- | --- | --- |
+| `REPLACE_WITH_APP_PACKAGE_ID` | Unique app ID (GUID) | Create one for your plugin package |
+| `REPLACE_WITH_MCP_HOST` | Public host name only (no `https://`) | Your deployed MCP endpoint host |
+| `REPLACE_WITH_OAUTH_PLUGIN_VAULT_REFERENCE_ID` | OAuthPluginVault reference ID | Copilot Cowork OAuth configuration |
 
 Important:
 
 - `mcpServerUrl` must be `https://<host>/mcp`
 - Do not use `/healthz` in the manifest
+- Keep these paths unchanged:
+  - `tools/nasa-mars-rover-tools.json`
+  - `skills/<skill-folder>/SKILL.md`
 
-### 2) Keep tools + skills paths unchanged
+## Lab steps
 
-The manifest should continue to reference:
+### Step 1: Update `manifest.json`
 
-- `tools/nasa-mars-rover-tools.json`
-- `skills/<skill-folder>/SKILL.md`
+Open `appPackage/manifest.json` and replace the 3 placeholders above.
 
-### 3) Create the plugin zip
+### Step 2: Build the plugin zip
 
 Run from repository root:
 
@@ -75,15 +74,9 @@ Compress-Archive `
   -Force
 ```
 
-Zip the **contents** of `appPackage`, not the `appPackage` folder itself.
+Package the **contents** of `appPackage`, not the `appPackage` folder itself.
 
-If you just want to test quickly, you can also use the ready sample package in this repo:
-
-```text
-nasa-mars-rover-cowork-plugin.zip
-```
-
-### 4) Validate zip layout
+### Step 3: Validate zip layout
 
 ```powershell
 Expand-Archive `
@@ -104,9 +97,25 @@ tools/
 skills/
 ```
 
-### 5) Upload to Copilot Cowork
+### Step 4: Upload in Copilot Cowork
 
-Upload `nasa-mars-rover-cowork-plugin.zip` in your Cowork environment (either the one you built in Step 3 or the sample zip from the repo).
+In your Copilot Cowork environment, go to plugin/app upload, then upload:
+
+```text
+nasa-mars-rover-cowork-plugin.zip
+```
+
+Save/publish according to your tenant flow.
+
+### Step 5: Validate in chat
+
+After install, run quick tests:
+
+1. `List Mars rovers`
+2. `Show Perseverance cameras`
+3. `Get latest photos from Curiosity`
+
+You should see tool-backed responses from the plugin.
 
 ## Included tools (read-only)
 
@@ -125,18 +134,27 @@ opportunity
 spirit
 ```
 
-## Quick troubleshooting
+## Troubleshooting (symptom -> action)
 
-| Symptom | Likely cause |
-| --- | --- |
-| Plugin install fails | Wrong zip layout or manifest issue |
-| Auth failed | Incorrect OAuthPluginVault reference, audience, or consent |
-| `/mcp` says `missing_bearer_token` | Auth not attached by plugin |
-| `/mcp` says `invalid_token` | Audience/issuer mismatch on backend |
+| Symptom | Most likely cause | What to do |
+| --- | --- | --- |
+| Plugin upload fails | Wrong zip structure | Confirm `manifest.json` is at zip root (not inside `appPackage/`) |
+| Auth failed | Wrong OAuthPluginVault reference or missing consent | Recheck `referenceId` and confirm OAuth consent is complete |
+| `/mcp` returns `missing_bearer_token` | Auth not attached by plugin | Recheck manifest authorization block |
+| `/mcp` returns `invalid_token` | Audience/issuer mismatch on backend | Recheck backend Entra audience/issuer configuration |
+| Tools not visible | Tool file path issue | Confirm manifest points to `tools/nasa-mars-rover-tools.json` |
 
-## Release tip
+## Success criteria
 
-Use the same version across:
+The lab is complete when:
+
+1. Plugin uploads successfully.
+2. Authentication succeeds.
+3. At least one rover tool call returns data in Copilot Cowork chat.
+
+## Versioning tip
+
+Use the same semantic version in:
 
 1. `appPackage/manifest.json`
 2. zip filename
