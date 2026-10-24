@@ -2,6 +2,19 @@
 
 This repository is a parent hub for Copilot Cowork MCP samples, deployment walkthroughs, plugin packages, and blog-style technical posts.
 
+## Start here (choose one path)
+
+| If you want to... | Open this |
+| --- | --- |
+| Deploy the full MCP backend + plugin end to end | [DEPLOYMENT.md](DEPLOYMENT.md) |
+| Run the plugin packaging lab only (no backend build) | [NASA Mars Rover Plugin for Copilot Cowork](docs/blogs/nasa-mars-rover-plugin-for-copilot-cowork.md) |
+| Run an instructor-style full lab | [End-to-end lab workbook](docs/labs/nasa-mars-rover-mcp-cowork-end-to-end-lab.md) |
+
+Quick note:
+
+- `npm install` / `npm run build` are for backend/server work.
+- Plugin-only packaging uses `appPackage/` and zip upload; no npm build is required.
+
 ## Projects
 
 | Project | Description | Code |
@@ -13,7 +26,7 @@ This repository is a parent hub for Copilot Cowork MCP samples, deployment walkt
 | Blog | What it covers |
 | --- | --- |
 | [NASA Mars Rover MCP Connector and Plugin for Copilot Cowork](docs/blogs/building-a-multi-tenant-copilot-mcp-connector-for-nasa-mars-rover-photos.md) | End-to-end beginner walkthrough: MCP server, Entra auth, Azure Kubernetes deployment, plugin package, and multi-tenant setup. |
-| [NASA Mars Rover Plugin for Copilot Cowork](docs/blogs/nasa-mars-rover-plugin-for-copilot-cowork.md) | Companion post focused only on the plugin: manifest, tools, skills, OAuthPluginVault, packaging, release checklist, and plugin-only project structure. |
+| [NASA Mars Rover Plugin for Copilot Cowork](docs/blogs/nasa-mars-rover-plugin-for-copilot-cowork.md) | Business-user plugin lab guide: prerequisites, manifest values, packaging steps, upload flow, validation, and troubleshooting. |
 
 ## Plugin packages
 
