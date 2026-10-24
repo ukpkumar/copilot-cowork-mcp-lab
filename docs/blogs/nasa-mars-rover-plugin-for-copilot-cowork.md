@@ -77,6 +77,12 @@ Compress-Archive `
 
 Zip the **contents** of `appPackage`, not the `appPackage` folder itself.
 
+If you just want to test quickly, you can also use the ready sample package in this repo:
+
+```text
+nasa-mars-rover-cowork-plugin.zip
+```
+
 ### 4) Validate zip layout
 
 ```powershell
@@ -100,7 +106,7 @@ skills/
 
 ### 5) Upload to Copilot Cowork
 
-Upload `nasa-mars-rover-cowork-plugin.zip` in your Cowork environment.
+Upload `nasa-mars-rover-cowork-plugin.zip` in your Cowork environment (either the one you built in Step 3 or the sample zip from the repo).
 
 ## Included tools (read-only)
 
